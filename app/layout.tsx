@@ -1,36 +1,42 @@
-import Navbar from '@/components/shared/Navbar'
+import { ThemeProvider } from '@/components/providers/theme-provider'
+import { ChildProps } from '@/types'
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Crete_Round, Work_Sans } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
+const creteRound = Crete_Round({
+	weight: ['400'],
 	subsets: ['latin'],
+	variable: '--font-crete-round',
 })
-
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
+const workSans = Work_Sans({
+	weight: ['500', '600'],
 	subsets: ['latin'],
+	variable: '--font-work-sans',
 })
 
 export const metadata: Metadata = {
 	title: 'Next App',
-	description: 'Next.js app with TypiScript and Tailwind CSS',
+	description: 'Next.js app with TypeScript and Tailwind CSS',
 }
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode
-}>) {
+function RootLayout({ children }: ChildProps) {
 	return (
-		<html lang='en'>
+		<html lang='en' suppressHydrationWarning>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${creteRound.variable} ${workSans.variable} overflow-x-hidden antialiased`}
 			>
-				<Navbar />
-				{children}
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange
+				>
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	)
 }
+
+export default RootLayout
