@@ -7,7 +7,9 @@ const Layout = ({ children }: ChildProps) => {
 		<main>
 			<Navbar />
 			<div className='container'>{children}</div>
-			<Footer />
+			<div className='flex justify-center items-center'>
+				<Footer />
+			</div>
 		</main>
 	)
 }

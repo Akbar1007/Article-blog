@@ -1,53 +1,34 @@
-import Image from 'next/image'
+'use client'
 
-const Footer = () => {
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { User2 } from 'lucide-react'
+import { useState } from 'react'
+
+function Footer() {
+	const [active, setActive] = useState(false)
+
 	return (
-		<footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
-			<a
-				className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-				href=''
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				<Image
-					aria-hidden
-					src='/file.svg'
-					alt='File icon'
-					width={16}
-					height={16}
+		<footer className='container flex-center py-24 flex-col max-w-2xl space-y-12'>
+			<h1 className='text-5xl max-md:text-3xl text-center'>
+				Get latest posts delivered right to your inbox
+			</h1>
+			<div className='grid max-md:grid-cols-1 grid-cols-3 md:gap-4 w-full'>
+				<Input
+					className='w-full col-span-2'
+					placeholder='Your email address'
+					onFocus={() => setActive(true)}
+					onBlur={() => setActive(false)}
 				/>
-				Telegram
-			</a>
-			<a
-				className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-				href=''
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				<Image
-					aria-hidden
-					src='/window.svg'
-					alt='Window icon'
-					width={16}
-					height={16}
-				/>
-				Examples
-			</a>
-			<a
-				className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-				href=''
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				<Image
-					aria-hidden
-					src='/globe.svg'
-					alt='Globe icon'
-					width={16}
-					height={16}
-				/>
-				Go to my GitHub→
-			</a>
+				<Button
+					size={'lg'}
+					variant={active ? 'default' : 'outline'}
+					className='max-md:mt-2'
+				>
+					<User2 className='w-4 h-4 me-2' />
+					<span>Join Today</span>
+				</Button>
+			</div>
 		</footer>
 	)
 }

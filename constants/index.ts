@@ -13,3 +13,17 @@ export const navLinks = [
 	{ name: 'Archive', route: '/archive', icon: FolderArchive },
 	{ name: 'Contact', route: '/contact', icon: Contact2 },
 ]
+
+export const popularCategories = [
+	{ name: 'Front End', slug: 'front-end' },
+	{ name: 'Back End', slug: 'back-end' },
+	{ name: 'Full Stack', slug: 'full-stack' },
+	{ name: 'AI', slug: 'artificial-intelligence' },
+]
+
+export const popularTags = [
+	{ name: 'Java Script', slug: 'java-script' },
+	{ name: 'React JS', slug: 'react-js' },
+	{ name: 'Node JS', slug: 'node-js' },
+	{ name: 'Next JS', slug: 'next-js' },
+]
