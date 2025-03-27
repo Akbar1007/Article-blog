@@ -1,9 +1,16 @@
+'use client'
+
 import ModeToggle from '@/components/shared/mode-toggle'
 import { navLinks } from '@/constants'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import GlobalSearch from './global-search'
+import Mobile from './sheet-mobile'
 
 function Navbar() {
+	const pathName = usePathname()
+
 	return (
 		<div className='h-[10vh] backdrop-blur-sd border-b fixed z-40 inset-0 bg-background'>
 			<div className='container max-w-6xl mx-auto h-[10vh] w-full flex items-center justify-between'>
@@ -15,7 +22,10 @@ function Navbar() {
 						<Link
 							key={link.route}
 							href={link.route}
-							className='hover:bg-blue-400/20 py-1 px-3 cursor-pointer rounded-sd transition-colors'
+							className={cn(
+								'hover:bg-blue-400/20 py-1 px-3 cursor-pointer rounded-sd transition-colors',
+								pathName === link.route && 'bg-blue-400/25'
+							)}
 						>
 							{link.name}
 						</Link>
@@ -25,6 +35,7 @@ function Navbar() {
 				<div className='flex items-center gap-1'>
 					<GlobalSearch />
 					<ModeToggle />
+					<Mobile />
 				</div>
 			</div>
 		</div>

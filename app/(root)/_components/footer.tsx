@@ -24,6 +24,7 @@ function Footer() {
 					size={'lg'}
 					variant={active ? 'default' : 'outline'}
 					className='max-md:mt-2'
+					aria-label='join'
 				>
 					<User2 className='w-4 h-4 me-2' />
 					<span>Join Today</span>
