@@ -28,7 +28,6 @@ function BlogCard(blog: Props) {
 				/>
 			</div>
 			<div className='flex flex-col space-y-4'>
-				{/* Time info */}
 				<div className='flex items-center gap-4'>
 					<div className='flex items-center gap-2'>
 						<CalendarDays className='w-5 h-5' />
@@ -41,17 +40,15 @@ function BlogCard(blog: Props) {
 					</div>
 				</div>
 
-				{/* Title */}
 				<h2 className='text-3xl max-md:text-2xl font-creteRound group-hover:text-blue-500 transition-colors'>
 					{blog.title}
 				</h2>
 				<p className='text-muted-foreground line-clamp-3'>{blog.description}</p>
 
-				{/* Author */}
 				<div className='flex items-center gap-4'>
 					<div className='flex items-center gap-2'>
 						<Image
-							src={'/author/thomas-macaulay.jpg'}
+							src={'/authors/thomas-macaulay.jpg'}
 							alt='author'
 							width={30}
 							height={30}
