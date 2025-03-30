@@ -21,5 +21,3 @@ function AuthorCard(author: IAuthor) {
 }
 
 export default AuthorCard
-
-// 21
