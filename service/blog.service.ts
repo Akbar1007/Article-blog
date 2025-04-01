@@ -1,3 +1,4 @@
+import { IBlog } from '@/types'
 import request, { gql } from 'graphql-request'
 
 const graphQLAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
@@ -9,6 +10,9 @@ export const getBlogs = async () => {
 				title
 				author {
 					name
+					image {
+						url
+					}
 				}
 				category {
 					name
@@ -19,10 +23,13 @@ export const getBlogs = async () => {
 					name
 					slug
 				}
+				image {
+					url
+				}
 			}
 		}
 	`
 
-	const res = await request(graphQLAPI, query)
-	return res
+	const { blogs } = await request<{ blogs: IBlog[] }>(graphQLAPI, query)
+	return blogs
 }
