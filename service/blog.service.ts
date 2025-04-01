@@ -26,6 +26,10 @@ export const getBlogs = async () => {
 				image {
 					url
 				}
+				createdAt
+				content {
+					text
+				}
 			}
 		}
 	`

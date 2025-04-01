@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import { IBlog } from '@/types'
+import { format } from 'date-fns'
 import { CalendarDays, Clock, Dot, Minus } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,7 +32,7 @@ function BlogCard(blog: Props) {
 				<div className='flex items-center gap-4'>
 					<div className='flex items-center gap-2'>
 						<CalendarDays className='w-5 h-5' />
-						<p>31 March</p>
+						<p>{format(new Date(blog.createdAt), 'MMM dd, yyyy')}</p>
 					</div>
 					<Minus />
 					<div className='flex items-center gap-2'>
