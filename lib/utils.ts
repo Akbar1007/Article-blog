@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -9,7 +10,7 @@ export function getReadingTime(content: string) {
 	const WPS = 275 / 60
 
 	let images = 0
-	const regex = /<img/i
+	const regex = /\w/
 
 	let words = content.split(' ').filter(word => {
 		if (word.includes('<img')) {

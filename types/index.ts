@@ -10,7 +10,7 @@ export interface IBlog {
 	tag: ICategoryAndTags
 	image: { url: string }
 	createdAt: string
-	content: { text: string }
+	content: { html: string }
 }
 
 export interface IAuthor {

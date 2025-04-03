@@ -28,7 +28,7 @@ export const getBlogs = async () => {
 				}
 				createdAt
 				content {
-					text
+					html
 				}
 			}
 		}
