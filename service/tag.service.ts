@@ -28,6 +28,10 @@ export const getBlogsByTag = async (slug: string) => {
 						name
 						slug
 					}
+					category {
+						name
+						slug
+					}
 					title
 				}
 				name
