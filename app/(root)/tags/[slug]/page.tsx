@@ -4,6 +4,7 @@ import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 
 async function Page({ params }: { params: { slug: string } }) {
+	console.log('Params:', params)
 	const tag = await getBlogsByTag(params.slug)
 
 	return (

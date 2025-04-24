@@ -13,8 +13,6 @@ interface Props extends IBlog {
 }
 
 function BlogCard(blog: Props) {
-	console.log(blog)
-
 	return (
 		<div
 			className={cn(
