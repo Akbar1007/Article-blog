@@ -2,7 +2,7 @@ export interface ChildProps {
 	children: React.ReactNode
 }
 
-export type Params = {
+export type PageProps = {
 	params: {
 		slug: string
 	}

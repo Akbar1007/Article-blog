@@ -1,7 +1,8 @@
+import { Crete_Round, Work_Sans } from 'next/font/google'
+
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { ChildProps } from '@/types'
 import type { Metadata } from 'next'
-import { Crete_Round, Work_Sans } from 'next/font/google'
 import './globals.css'
 
 const creteRound = Crete_Round({
