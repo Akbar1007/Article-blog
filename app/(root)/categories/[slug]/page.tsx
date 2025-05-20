@@ -1,9 +1,11 @@
-import BlogCard from '@/components/cards/blog'
-import { getBlogsByCategory } from '@/service/category.service'
 import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 
-async function Page({ params }: { params: { slug: string } }) {
+import BlogCard from '@/components/cards/blog'
+import { getBlogsByCategory } from '@/service/category.service'
+import { PageProps } from '@/types'
+
+async function Page({ params }: PageProps) {
 	const category = await getBlogsByCategory(params.slug)
 	console.log(category)
 

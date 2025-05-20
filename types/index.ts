@@ -2,6 +2,12 @@ export interface ChildProps {
 	children: React.ReactNode
 }
 
+export type PageProps = {
+	params: {
+		slug: string
+	}
+}
+
 export interface IBlog {
 	title: string
 	author: IAuthor

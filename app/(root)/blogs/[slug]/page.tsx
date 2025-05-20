@@ -1,6 +1,3 @@
-import { Button } from '@/components/ui/button'
-import { getReadingTime } from '@/lib/utils'
-import { getDetailedBlog } from '@/service/blog.service'
 import { format } from 'date-fns'
 import parse from 'html-react-parser'
 import {
@@ -16,7 +13,12 @@ import Link from 'next/link'
 import { BsTwitterX } from 'react-icons/bs'
 import { FaFacebook, FaLinkedin } from 'react-icons/fa6'
 
-async function SlugPage({ params }: { params: { slug: string } }) {
+import { Button } from '@/components/ui/button'
+import { getReadingTime } from '@/lib/utils'
+import { getDetailedBlog } from '@/service/blog.service'
+import { PageProps } from '@/types'
+
+async function SlugPage({ params }: PageProps) {
 	const blog = await getDetailedBlog(params.slug)
 
 	return (
