@@ -16,9 +16,9 @@ import { FaFacebook, FaLinkedin } from 'react-icons/fa6'
 import { Button } from '@/components/ui/button'
 import { getReadingTime } from '@/lib/utils'
 import { getDetailedBlog } from '@/service/blog.service'
-import { PageProps } from '@/types'
+import { Params } from '@/types'
 
-async function SlugPage({ params }: PageProps) {
+async function SlugPage({ params }: Params) {
 	const blog = await getDetailedBlog(params.slug)
 
 	return (

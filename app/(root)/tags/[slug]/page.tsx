@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 import BlogCard from '@/components/cards/blog'
 import { getBlogsByTag } from '@/service/tag.service'
-import { PageProps } from '@/types'
+import { Params } from '@/types'
 
-async function Page({ params }: PageProps) {
+async function Page({ params }: Params) {
 	console.log('Params:', params)
 	const tag = await getBlogsByTag(params.slug)
 
