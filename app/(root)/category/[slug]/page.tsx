@@ -2,18 +2,19 @@ import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 
 import BlogCard from '@/components/cards/blog'
-import { getBlogsByTag } from '@/service/tag.service'
-import { PagePropsWithSlug } from '@/types'
+import { getBlogsByCategory } from '@/service/category.service'
 
-async function Page({ params }: PagePropsWithSlug) {
-	console.log('Params:', params)
-	const tag = await getBlogsByTag(params.slug)
+type Props = { slug: string }
+
+async function Page({ params }: { params: Props }) {
+	const category = await getBlogsByCategory(params.slug)
+	console.log(category)
 
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[30vh] flex items-center justify-end flex-col'>
 				<h2 className='text-center text-4xl section-title font-creteRound mt-2'>
-					<span>{tag.name}</span>
+					<span>{category.name}</span>
 				</h2>
 
 				<div className='flex gap-1 items-center mt-4'>
@@ -25,12 +26,12 @@ async function Page({ params }: PagePropsWithSlug) {
 						Home
 					</Link>
 					<Dot />
-					<p className='text-muted-foreground'>Tags</p>
+					<p className='text-muted-foreground'>Category</p>
 				</div>
 			</div>
 
 			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24'>
-				{tag.blog.map(blog => (
+				{category.blogs.map(blog => (
 					<BlogCard key={blog.title} {...blog} isVertical />
 				))}
 			</div>

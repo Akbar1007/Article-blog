@@ -72,7 +72,7 @@ function BlogCard(blog: Props) {
 								{blog.tag.name}
 							</Badge>
 						</Link>
-						<Link href={`categories/${blog.category.slug}`}>
+						<Link href={`category/${blog.category.slug}`}>
 							<Badge variant={'outline'} role='button'>
 								<Layers2 className='w-3 h-3 me-2' />
 								{blog.category.name}

@@ -3,9 +3,13 @@ export interface ChildProps {
 }
 
 export type PageProps = {
-	params: {
-		slug: string
-	}
+	params: { [key: string]: string }
+	searchParams?: { [key: string]: string | string[] | undefined }
+}
+
+export type PagePropsWithSlug = {
+	params: { slug: string }
+	searchParams?: { [key: string]: string | string[] | undefined }
 }
 
 export interface IBlog {
