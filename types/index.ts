@@ -2,16 +2,6 @@ export interface ChildProps {
 	children: React.ReactNode
 }
 
-export type PageProps = {
-	params: { [key: string]: string }
-	searchParams?: { [key: string]: string | string[] | undefined }
-}
-
-export type PagePropsWithSlug = {
-	params: { slug: string }
-	searchParams?: { [key: string]: string | string[] | undefined }
-}
-
 export interface IBlog {
 	title: string
 	author: IAuthor
