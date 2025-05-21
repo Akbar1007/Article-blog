@@ -1,7 +1,7 @@
-import { IAuthor } from '@/types'
 import Image from 'next/image'
 
-function AuthorCard(author: IAuthor) {
+// TODO: get authors from service and fix types too
+function AuthorCard(author: { name: string; image: string }) {
 	return (
 		<div className='flex flex-col space-y-2 w-52 text-center'>
 			<div className='w-full h-52 relative'>

@@ -1,8 +1,9 @@
-import AuthorCard from '@/components/cards/author'
-import { authors } from '@/constants'
 import { Dot, Home } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import AuthorCard from '@/components/cards/author'
+import { authors } from '@/constants'
 
 function AboutPage() {
 	return (

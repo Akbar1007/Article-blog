@@ -1,10 +1,11 @@
 'use client'
 
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import ModeToggle from '@/components/shared/mode-toggle'
 import { navLinks } from '@/constants'
 import { cn } from '@/lib/utils'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import GlobalSearch from './global-search'
 import Mobile from './sheet-mobile'
 

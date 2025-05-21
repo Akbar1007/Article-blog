@@ -1,5 +1,6 @@
-import { IBlog } from '@/types'
 import request, { gql } from 'graphql-request'
+
+import { IBlog } from '@/types'
 
 const graphQLAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 

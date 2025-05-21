@@ -1,8 +1,9 @@
+import { Search } from 'lucide-react'
+
 import { Badge } from '@/components/ui/badge'
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import { popularCategories, popularTags } from '@/constants'
-import { Search } from 'lucide-react'
 
 const GlobalSearch = () => {
 	return (

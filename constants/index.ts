@@ -73,14 +73,17 @@ export const authors = [
 	{
 		name: 'author 1',
 		image: '/authors/thomas-macaulay.jpg',
+		bio: 'developer',
 	},
 	{
 		name: 'author 2',
 		image: '/authors/chris-impey.jpg',
+		bio: 'developer2',
 	},
 	{
 		name: 'author 3',
 		image: '/authors/emma-hazel.jpg',
+		bio: 'developer3',
 	},
 ]
 

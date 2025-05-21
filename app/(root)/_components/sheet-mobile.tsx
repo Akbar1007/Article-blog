@@ -1,11 +1,12 @@
+import { Menu } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { navLinks } from '@/constants'
 import { cn } from '@/lib/utils'
-import { Menu } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 const Mobile = () => {
 	const pathName = usePathname()

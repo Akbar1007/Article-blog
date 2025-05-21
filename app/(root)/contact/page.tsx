@@ -1,8 +1,9 @@
+import { Dot, Home, Mail, Phone, Send } from 'lucide-react'
+import Link from 'next/link'
+
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Dot, Home, Mail, Phone, Send } from 'lucide-react'
-import Link from 'next/link'
 
 function ContactPage() {
 	return (
