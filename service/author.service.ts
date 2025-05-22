@@ -27,7 +27,7 @@ export const getAuthors = async () => {
 
 export const getDetailedAuthor = async (id: string) => {
 	const query = gql`
-		query MyQuery($id: $String!) {
+		query MyQuery($id: ID!) {
 			author(where: { id: $id }) {
 				name
 				bio
