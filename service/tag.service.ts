@@ -1,6 +1,6 @@
 import request, { gql } from 'graphql-request'
 
-import { IBlog } from '@/types'
+import { IBlog, ICategoryAndTags } from '@/types'
 
 const graphQLAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
@@ -46,4 +46,21 @@ export const getBlogsByTag = async (slug: string) => {
 		{ slug }
 	)
 	return tag
+}
+
+export const getTags = async () => {
+	const query = gql`
+		query MyQuery {
+			tags {
+				name
+				slug
+			}
+		}
+	`
+
+	const { tags } = await request<{ tags: ICategoryAndTags[] }>(
+		graphQLAPI,
+		query
+	)
+	return tags
 }

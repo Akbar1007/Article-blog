@@ -32,11 +32,10 @@ const GlobalSearch = () => {
 						<div className='flex item-center gap-2'>
 							<p className='text-2xl'>See posts by categories</p>
 							<Minus className='mt-1' />
-							<Link
-								href={'/categories'}
-								className='text-blue-500 text-xl hover:opacity-90 mt-1'
-							>
-								<DrawerClose className='underline'>See all </DrawerClose>
+							<Link href={'/categories'}>
+								<DrawerClose className='text-blue-500 cursor-pointer text-xl underline hover:opacity-90 mt-1'>
+									See all{' '}
+								</DrawerClose>
 							</Link>
 						</div>
 
@@ -51,11 +50,10 @@ const GlobalSearch = () => {
 						<div className='flex item-center gap-2'>
 							<p className='text-2xl'>See posts by tags</p>
 							<Minus className='mt-1' />
-							<Link
-								href={'/tags'}
-								className='text-blue-500 hover:opacity-90 text-xl mt-1'
-							>
-								<DrawerClose className='underline'>See all </DrawerClose>
+							<Link href={'/tags'}>
+								<DrawerClose className='text-blue-500 cursor-pointer text-xl underline hover:opacity-90 mt-1'>
+									See all{' '}
+								</DrawerClose>
 							</Link>
 						</div>
 						<div className='flex flex-wrap gap-2'>
