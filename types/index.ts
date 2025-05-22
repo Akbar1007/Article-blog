@@ -16,8 +16,10 @@ export interface IBlog {
 
 export interface IAuthor {
 	name: string
-	image: { url: string }
 	bio: string
+	id: string
+	image: { url: string }
+	blogs: IBlog[]
 }
 
 export interface ICategoryAndTags {

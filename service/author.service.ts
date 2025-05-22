@@ -10,8 +10,12 @@ export const getAuthors = async () => {
 			authors {
 				name
 				bio
+				id
 				image {
 					url
+				}
+				blogs {
+					id
 				}
 			}
 		}
@@ -19,4 +23,50 @@ export const getAuthors = async () => {
 
 	const { authors } = await request<{ authors: IAuthor[] }>(graphQLAPI, query)
 	return authors
+}
+
+export const getDetailedAuthor = async (id: string) => {
+	const query = gql`
+		query MyQuery($id: $String!) {
+			author(where: { id: $id }) {
+				name
+				bio
+				image {
+					url
+				}
+				blogs {
+					description
+					author {
+						name
+						image {
+							url
+						}
+						bio
+					}
+					content {
+						html
+					}
+					createdAt
+					image {
+						url
+					}
+					slug
+					tag {
+						name
+						slug
+					}
+					category {
+						name
+						slug
+					}
+					title
+				}
+			}
+		}
+	`
+
+	const { author } = await request<{
+		author: IAuthor
+	}>(graphQLAPI, query, { id })
+	return author
 }

@@ -1,12 +1,17 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
-// TODO: get authors from service and fix types too
-function AuthorCard(author: { name: string; image: string }) {
+import { IAuthor } from '@/types'
+
+function AuthorCard(author: IAuthor) {
 	return (
-		<div className='flex flex-col space-y-2 w-52 text-center'>
+		<Link
+			className='flex flex-col space-y-2 w-52 text-center'
+			href={`/author/${author.id}`}
+		>
 			<div className='w-full h-52 relative'>
 				<Image
-					src={author.image}
+					src={author.image.url}
 					alt='author'
 					fill
 					className='object-cover rounded-md grayscale hover:grayscale-0 transition-all'
@@ -14,9 +19,10 @@ function AuthorCard(author: { name: string; image: string }) {
 			</div>
 			<h2 className='text-2xl font-creteRound'>{author.name}</h2>
 			<p className='text-muted-foreground'>
-				<span className='font-bold text-white'>4</span> Published posts
+				<span className='font-bold text-white'>{author.blogs.length}</span>{' '}
+				Published posts
 			</p>
-		</div>
+		</Link>
 	)
 }
 

@@ -3,9 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import AuthorCard from '@/components/cards/author'
-import { authors } from '@/constants'
+import { getAuthors } from '@/service/author.service'
 
-function AboutPage() {
+async function AboutPage() {
+	const authors = await getAuthors()
+
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-center flex-col'>
@@ -76,8 +78,8 @@ function AboutPage() {
 			</h2>
 
 			<div className='flex justify-around max-md:flex-col max-md:space-y-4 max-md:items-center'>
-				{authors.map(auth => (
-					<AuthorCard key={auth.name} {...auth} />
+				{authors.map(author => (
+					<AuthorCard key={author.id} {...author} />
 				))}
 			</div>
 		</div>
