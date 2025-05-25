@@ -3,7 +3,12 @@ import Image from 'next/image'
 import BlogCard from '@/components/cards/blog'
 import { getDetailedAuthor } from '@/service/author.service'
 
-async function Page({ params }: { params: { id: string } }) {
+interface Params {
+	id: string
+}
+
+async function Page(props: { params: Promise<Params> }) {
+	const params = await props.params
 	const author = await getDetailedAuthor(params.id)
 
 	return (
