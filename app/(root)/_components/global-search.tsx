@@ -1,6 +1,9 @@
-import { Minus, Search } from 'lucide-react'
+import { debounce } from 'lodash'
+import { Loader2, Minus, Search } from 'lucide-react'
 import Link from 'next/link'
+import { ChangeEvent, useState } from 'react'
 
+import SearchCard from '@/components/cards/search'
 import { Badge } from '@/components/ui/badge'
 import {
 	Drawer,
@@ -9,9 +12,33 @@ import {
 	DrawerTrigger,
 } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
 import { popularCategories, popularTags } from '@/constants'
+import { getSearchBlogs } from '@/service/blog.service'
+import { IBlog } from '@/types'
 
 const GlobalSearch = () => {
+	const [isPending, setIsPending] = useState(false)
+	const [blogs, setBlogs] = useState<IBlog[]>([])
+	const [searchTerm, setSearchTerm] = useState('')
+
+	const handleSearch = async (e: ChangeEvent<HTMLInputElement>) => {
+		const text = e.target.value.toLowerCase()
+		setSearchTerm(text)
+
+		if (text && text.length > 2) {
+			setIsPending(true)
+			const data = await getSearchBlogs(text)
+			setBlogs(data)
+			setIsPending(false)
+		} else {
+			setBlogs([])
+			setIsPending(false)
+		}
+	}
+
+	const debounceSearch = debounce(handleSearch, 2000)
+
 	return (
 		<Drawer>
 			<DrawerTrigger>
@@ -26,7 +53,25 @@ const GlobalSearch = () => {
 						className='bg-secondary'
 						placeholder='Search blog...'
 						aria-label='search-blog'
+						onChange={debounceSearch}
+						disabled={isPending}
 					/>
+
+					{isPending && <Loader2 className='animate-spin mt-4 mx-auto' />}
+					{searchTerm && blogs.length === 0 ? (
+						<div className='text-2xl font-creteRound mt-8'>No blogs found.</div>
+					) : blogs.length > 0 ? (
+						<div className='text-2xl font-creteRound mt-8'>
+							{blogs.length === 1
+								? '1 Blog found.'
+								: `${blogs.length} Blogs found.`}
+						</div>
+					) : null}
+					<div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2'>
+						{blogs &&
+							blogs.map(blog => <SearchCard key={blog.slug} {...blog} />)}
+					</div>
+					{blogs.length ? <Separator className='mt-3' /> : null}
 
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex item-center gap-2'>
