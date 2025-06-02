@@ -18,8 +18,26 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-	title: 'Next App',
-	description: 'Next.js app with TypeScript and Tailwind CSS',
+	metadataBase: new URL('https://article-blog-liart.vercel.app'),
+	title: 'AG Blog | Posts about programming',
+	description: 'Posts about programming, software development, and technology.',
+	authors: [{ name: 'Akbar Axmedov', url: 'https://t.me/Akhmedov_Akbar' }],
+	icons: { icon: '/favicon.png' },
+	keywords:
+		'programming, articles, blog, software development, coding, tutorials, tips, news, technology, web development, mobile development, backend development, frontend development, devops, machine learning, data science akbar axmedov',
+	openGraph: {
+		title: 'AG Blog | Posts about programming',
+		description:
+			'Posts about programming, software development, and technology.',
+		type: 'website',
+		url: 'https://article-blog-liart.vercel.app',
+		locale: 'en_EN',
+		images:
+			'https://eu-west-2.graphassets.com/cm8vhvobc170d07mi3kuwde6v/output=format:jpg/cmazcpaazlf2d07mlafeh2nbd',
+		countryName: 'Uzbekistan',
+		siteName: 'AG Blog',
+		emails: 'a.akbarjon007@gmail.com',
+	},
 }
 
 function RootLayout({ children }: ChildProps) {
@@ -33,6 +51,8 @@ function RootLayout({ children }: ChildProps) {
 					defaultTheme='system'
 					enableSystem
 					disableTransitionOnChange
+					// TODO: srotage key to local storage:
+					storageKey='blog-theme'
 				>
 					{children}
 					<Toaster position='top-center' />
