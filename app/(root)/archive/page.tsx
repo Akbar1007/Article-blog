@@ -1,7 +1,12 @@
+import { format } from 'date-fns'
 import { Archive, Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 
-function ArchivePage() {
+import { getArchiveBlogs } from '@/service/blog.service'
+
+async function ArchivePage() {
+	const blogs = await getArchiveBlogs()
+
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-end flex-col'>
@@ -32,29 +37,36 @@ function ArchivePage() {
 				</div>
 			</div>
 
-			<div className='flex flex-col space-y-3 mt-8'>
-				<div className='relative'>
-					<span className='text-5xl font-creteRound relative z-20'>2025</span>
-					<Archive className='absolute w-16 h-16 -translate-x-4 -translate-y-12 opacity-10' />
-				</div>
-			</div>
+			{blogs.map(blog => (
+				<>
+					<div className='flex flex-col space-y-3 mt-8'>
+						<div className='relative'>
+							<span className='text-5xl font-creteRound relative z-20'>
+								{blog.year}
+							</span>
+							<Archive className='absolute w-16 h-16 -translate-x-4 -translate-y-12 opacity-10' />
+						</div>
+					</div>
 
-			<div className='flex flex-col space-y-2 mt-8'>
-				<div className='flex gap-2 text-lg text-muted-foreground'>
-					<p>March 20</p>
-					<Dot className='text-white w-8 h-8' />
-					<div className='hover:text-white hover:underline cursor-pointer'>
-						The AGI hype train is running out of steam
+					<div className='flex flex-col space-y-2 mt-8'>
+						{blog.blogs.map(blog => (
+							<div
+								className='flex gap-2 text-lg text-muted-foreground'
+								key={blog.slug}
+							>
+								<p>{format(new Date(blog.createdAt), 'dd MMM')}</p>
+								<Dot className='text-white w-8 h-8' />
+								<Link
+									href={`/blogs/${blog.slug}`}
+									className='hover:text-white hover:underline cursor-pointer'
+								>
+									{blog.title}
+								</Link>
+							</div>
+						))}
 					</div>
-				</div>
-				<div className='flex gap-2 text-lg text-muted-foreground'>
-					<p>mArch 20</p>
-					<Dot className='text-white w-8 h-8' />
-					<div className='hover:text-white hover:underline cursor-pointer'>
-						The AGI hype train is running out of steam
-					</div>
-				</div>
-			</div>
+				</>
+			))}
 		</div>
 	)
 }
