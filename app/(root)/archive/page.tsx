@@ -3,6 +3,11 @@ import { Archive, Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 
 import { getArchiveBlogs } from '@/service/blog.service'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Archived Blogs',
+}
 
 async function ArchivePage() {
 	const blogs = await getArchiveBlogs()

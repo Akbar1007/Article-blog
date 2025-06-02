@@ -21,6 +21,18 @@ interface Params {
 	slug: string
 }
 
+export async function generateMetadata(props: { params: Promise<Params> }) {
+	const params = await props.params
+	const blog = await getDetailedBlog(params.slug)
+	return {
+		title: blog.title,
+		description: blog.description,
+		openGraph: {
+			images: blog.image.url,
+		},
+	}
+}
+
 async function SlugPage(props: { params: Promise<Params> }) {
 	const params = await props.params
 	const blog = await getDetailedBlog(params.slug)

@@ -19,7 +19,7 @@ const workSans = Work_Sans({
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://article-blog-liart.vercel.app'),
-	title: 'AG Blog | Posts about programming',
+	title: 'AG | Blog',
 	description: 'Posts about programming, software development, and technology.',
 	authors: [{ name: 'Akbar Axmedov', url: 'https://t.me/Akhmedov_Akbar' }],
 	icons: { icon: '/favicon.png' },

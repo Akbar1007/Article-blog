@@ -4,6 +4,11 @@ import Link from 'next/link'
 
 import AuthorCard from '@/components/cards/author'
 import { getAuthors } from '@/service/author.service'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'About Us',
+}
 
 async function AboutPage() {
 	const authors = await getAuthors()

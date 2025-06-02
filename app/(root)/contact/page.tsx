@@ -2,6 +2,11 @@ import { Dot, Home, Mail, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 import ContactForm from '@/components/shared/contact-form'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Contact Us',
+}
 
 function ContactPage() {
 	return (

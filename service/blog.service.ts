@@ -1,4 +1,5 @@
 import request, { gql } from 'graphql-request'
+import { cache } from 'react'
 
 import { IArchieveBlog, IBlog } from '@/types'
 
@@ -40,7 +41,7 @@ export const getBlogs = async () => {
 	return blogs
 }
 
-export const getDetailedBlog = async (slug: string) => {
+export const getDetailedBlog = cache(async (slug: string) => {
 	const query = gql`
 		query MyQuery($slug: String!) {
 			blog(where: { slug: $slug }) {
@@ -76,7 +77,7 @@ export const getDetailedBlog = async (slug: string) => {
 
 	const { blog } = await request<{ blog: IBlog }>(graphQLAPI, query, { slug })
 	return blog
-}
+})
 
 export const getSearchBlogs = async (title: string) => {
 	const query = gql`

@@ -3,6 +3,11 @@ import Link from 'next/link'
 
 import CategoriesTagsCard from '@/components/cards/categories-tags'
 import { getCategories } from '@/service/category.service'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'All Categories',
+}
 
 async function Page() {
 	const categories = await getCategories()

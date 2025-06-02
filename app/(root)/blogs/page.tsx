@@ -3,6 +3,11 @@ import Link from 'next/link'
 
 import BlogCard from '@/components/cards/blog'
 import { getBlogs } from '@/service/blog.service'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'All Blogs',
+}
 
 async function BlogsPage() {
 	const blogs = await getBlogs()
