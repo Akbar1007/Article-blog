@@ -26,3 +26,8 @@ export interface ICategoryAndTags {
 	name: string
 	slug: string
 }
+
+export interface IArchieveBlog {
+	year: string
+	blogs: IBlog[]
+}
