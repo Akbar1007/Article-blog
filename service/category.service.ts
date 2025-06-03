@@ -37,12 +37,13 @@ export const getBlogsByCategory = cache(async (slug: string) => {
 					title
 				}
 				name
+				description
 			}
 		}
 	`
 
 	const { category } = await request<{
-		category: { blogs: IBlog[]; name: string }
+		category: { blogs: IBlog[]; name: string; description: string }
 	}>(graphQLAPI, query, { slug })
 	return category
 })

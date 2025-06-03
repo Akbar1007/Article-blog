@@ -37,15 +37,14 @@ export const getBlogsByTag = cache(async (slug: string) => {
 					title
 				}
 				name
+				description
 			}
 		}
 	`
 
-	const { tag } = await request<{ tag: { blog: IBlog[]; name: string } }>(
-		graphQLAPI,
-		query,
-		{ slug }
-	)
+	const { tag } = await request<{
+		tag: { blog: IBlog[]; name: string; description: string }
+	}>(graphQLAPI, query, { slug })
 	return tag
 })
 
