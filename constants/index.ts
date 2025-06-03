@@ -19,11 +19,14 @@ export const popularCategories = [
 	{ name: 'Back End', slug: 'back-end' },
 	{ name: 'Full Stack', slug: 'full-stack' },
 	{ name: 'AI', slug: 'artificial-intelligence' },
+	{ name: 'Mobile Dev', slug: 'mobile-dev' },
 ]
 
 export const popularTags = [
 	{ name: 'Java Script', slug: 'java-script' },
+	{ name: 'TypeScript', slug: 'type-script' },
 	{ name: 'React JS', slug: 'react-js' },
 	{ name: 'Node JS', slug: 'node-js' },
 	{ name: 'Next JS', slug: 'next-js' },
+	{ name: 'TailwindCSS', slug: 'tailwind-css' },
 ]

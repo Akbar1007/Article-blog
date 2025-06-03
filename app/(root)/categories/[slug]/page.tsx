@@ -8,11 +8,18 @@ interface Params {
 	slug: string
 }
 
+export async function generateMetadata(props: { params: Promise<Params> }) {
+	const params = await props.params
+	const blog = await getBlogsByCategory(params.slug)
+	return {
+		title: blog.name,
+		// TODO: add description; add a new field for keywords to backend
+	}
+}
+
 async function Page(props: { params: Promise<Params> }) {
 	const params = await props.params
-
 	const category = await getBlogsByCategory(params.slug)
-	console.log(category)
 
 	return (
 		<div className='max-w-6xl mx-auto'>

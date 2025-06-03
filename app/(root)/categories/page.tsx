@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 async function Page() {
 	const categories = await getCategories()
-	console.log(categories)
 
 	return (
 		<div className='max-w-6xl mx-auto'>

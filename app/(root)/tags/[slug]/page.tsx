@@ -8,9 +8,17 @@ interface Params {
 	slug: string
 }
 
+export async function generateMetadata(props: { params: Promise<Params> }) {
+	const params = await props.params
+	const blog = await getBlogsByTag(params.slug)
+	return {
+		title: blog.name,
+		// TODO: add description; add a new field for keywords to backend
+	}
+}
+
 async function Page(props: { params: Promise<Params> }) {
 	const params = await props.params
-	console.log('Params:', params)
 	const tag = await getBlogsByTag(params.slug)
 
 	return (

@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { IBlog } from '@/types'
 import { DrawerClose } from '../ui/drawer'
 
+// TODO: fix hydration issue format in date fns
+
 function SearchCard(blog: IBlog) {
 	return (
 		<Link href={`/blogs/${blog.slug}`}>

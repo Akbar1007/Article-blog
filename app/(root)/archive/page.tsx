@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 	title: 'Archived Blogs',
 }
 
+// TODO: fix hydration issue format in date fns
+
 async function ArchivePage() {
 	const blogs = await getArchiveBlogs()
 

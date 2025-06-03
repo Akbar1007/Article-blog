@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 async function Page() {
 	const tags = await getTags()
-	console.log(tags)
 
 	return (
 		<div className='max-w-6xl mx-auto'>

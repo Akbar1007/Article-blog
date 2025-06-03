@@ -1,3 +1,5 @@
+'use client'
+
 import { debounce } from 'lodash'
 import { Loader2, Minus, Search } from 'lucide-react'
 import Link from 'next/link'
@@ -73,6 +75,8 @@ const GlobalSearch = () => {
 					</div>
 					{blogs.length ? <Separator className='mt-3' /> : null}
 
+					{/* TODO: if there is no blog for this category or blog, show it to the user and redirect to the home page*/}
+
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex item-center gap-2'>
 							<p className='text-2xl'>See posts by categories</p>
@@ -84,12 +88,24 @@ const GlobalSearch = () => {
 							</Link>
 						</div>
 
+						{/* TODO: fetch poopular tags and categories from backend */}
 						<div className='flex flex-wrap gap-2'>
 							{popularCategories.map(category => (
-								<Badge key={category.slug}>{category.name}</Badge>
+								<Link href={`/categories/${category.slug}`} key={category.slug}>
+									<DrawerClose>
+										<Badge
+											variant={'secondary'}
+											className='cursor-pointer text-xl'
+										>
+											{category.name}
+										</Badge>
+									</DrawerClose>
+								</Link>
 							))}
 						</div>
 					</div>
+
+					<Separator className='mt-4' />
 
 					<div className='flex flex-col space-y-2 mt-4'>
 						<div className='flex item-center gap-2'>
@@ -103,7 +119,11 @@ const GlobalSearch = () => {
 						</div>
 						<div className='flex flex-wrap gap-2'>
 							{popularTags.map(tag => (
-								<Badge key={tag.slug}>{tag.name}</Badge>
+								<Link href={`/tags/${tag.slug}`} key={tag.slug}>
+									<DrawerClose>
+										<Badge className='cursor-pointer text-xl'>{tag.name}</Badge>
+									</DrawerClose>
+								</Link>
 							))}
 						</div>
 					</div>

@@ -7,6 +7,18 @@ interface Params {
 	id: string
 }
 
+export async function generateMetadata(props: { params: Promise<Params> }) {
+	const params = await props.params
+	const author = await getDetailedAuthor(params.id)
+	return {
+		title: author.name,
+		Description: author.bio,
+		openGraph: {
+			images: author.image.url,
+		},
+	}
+}
+
 async function Page(props: { params: Promise<Params> }) {
 	const params = await props.params
 	const author = await getDetailedAuthor(params.id)
