@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 	authors: [{ name: 'Akbar Axmedov', url: 'https://t.me/Akhmedov_Akbar' }],
 	icons: { icon: '/favicon.png' },
 	keywords:
-		'programming, articles, blog, software development, coding, tutorials, tips, news, technology, web development, mobile development, backend development, frontend development, devops, machine learning, data science akbar axmedov',
+		'ag blog, ag, blog, programming, articles, blog, software development, coding, tutorials, tips, news, technology, web development, mobile development, backend development, frontend development, devops, machine learning, data science, tailwindcss, akbar axmedov',
 	openGraph: {
 		title: 'AG Blog | Posts about programming',
 		description:

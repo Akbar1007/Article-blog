@@ -10,10 +10,10 @@ interface Params {
 
 export async function generateMetadata(props: { params: Promise<Params> }) {
 	const params = await props.params
-	const taggedBlogs = await getBlogsByTag(params.slug)
+	const tag = await getBlogsByTag(params.slug)
 	return {
-		title: taggedBlogs.name,
-		description: taggedBlogs.description,
+		title: tag.name,
+		description: tag.description,
 		// TODO: add a new field for keywords to backend
 	}
 }
