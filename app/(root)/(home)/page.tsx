@@ -3,6 +3,8 @@ import BgArrow from '@/components/shared/bg-arrow'
 import { getBlogs } from '@/service/blog.service'
 
 async function HomePage() {
+	//  TODO: show only a limited number of blogs here (first) */
+
 	const blogs = await getBlogs()
 
 	return (

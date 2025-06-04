@@ -1,19 +1,10 @@
 import { format } from 'date-fns'
 import parse from 'html-react-parser'
-import {
-	ArrowUpRight,
-	CalendarDays,
-	Clock,
-	Link2,
-	Minus,
-	Send,
-} from 'lucide-react'
+import { ArrowUpRight, CalendarDays, Clock, Minus } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { BsTwitterX } from 'react-icons/bs'
-import { FaFacebook, FaLinkedin } from 'react-icons/fa6'
 
-import { Button } from '@/components/ui/button'
+import ShareBtns from '@/components/shared/share-btns'
 import { getReadingTime } from '@/lib/utils'
 import { getDetailedBlog } from '@/service/blog.service'
 
@@ -78,23 +69,7 @@ async function SlugPage(props: { params: Promise<Params> }) {
 				<div className='flex flex-col space-y-3'>
 					<div className='sticky top-36'>
 						<p className='text-lg uppercase text-muted-foreground'>Share</p>
-						<div className='flex flex-col max-md:flex-row md:space-y-3 max-md:space-x-3 mt-4'>
-							<Button size={'icon'} variant={'outline'}>
-								<BsTwitterX />
-							</Button>
-							<Button size={'icon'} variant={'outline'}>
-								<FaFacebook />
-							</Button>
-							<Button size={'icon'} variant={'outline'}>
-								<FaLinkedin />
-							</Button>
-							<Button size={'icon'} variant={'outline'}>
-								<Send />
-							</Button>
-							<Button size={'icon'} variant={'outline'}>
-								<Link2 />
-							</Button>
-						</div>
+						<ShareBtns />
 					</div>
 				</div>
 				<div className='prose flex-1 dark:prose-invert'>
