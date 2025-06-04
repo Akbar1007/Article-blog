@@ -67,3 +67,19 @@ export const getTags = async () => {
 	)
 	return tags
 }
+
+export const getPopularTags = async () => {
+	const query = gql`
+		query MyQuery {
+			tags(first: 6) {
+				name
+				slug
+			}
+		}
+	`
+
+	const { tags } = await request<{
+		tags: { name: string; slug: string }[]
+	}>(graphQLAPI, query)
+	return tags
+}

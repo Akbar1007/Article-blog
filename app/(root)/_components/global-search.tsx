@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { ChangeEvent, useState } from 'react'
 
 import SearchCard from '@/components/cards/search'
+import PopularTags from '@/components/shared/popular-tags'
 import { Badge } from '@/components/ui/badge'
 import {
 	Drawer,
@@ -15,7 +16,7 @@ import {
 } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { popularCategories, popularTags } from '@/constants'
+import { popularCategories } from '@/constants'
 import { getSearchBlogs } from '@/service/blog.service'
 import { IBlog } from '@/types'
 
@@ -118,13 +119,7 @@ const GlobalSearch = () => {
 							</Link>
 						</div>
 						<div className='flex flex-wrap gap-2'>
-							{popularTags.map(tag => (
-								<Link href={`/tags/${tag.slug}`} key={tag.slug}>
-									<DrawerClose>
-										<Badge className='cursor-pointer text-xl'>{tag.name}</Badge>
-									</DrawerClose>
-								</Link>
-							))}
+							<PopularTags />
 						</div>
 					</div>
 				</div>
