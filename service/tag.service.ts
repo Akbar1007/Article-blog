@@ -9,7 +9,7 @@ export const getBlogsByTag = cache(async (slug: string) => {
 	const query = gql`
 		query MyQuery($slug: String!) {
 			tag(where: { slug: $slug }) {
-				blog {
+				blogs {
 					description
 					author {
 						name
@@ -43,7 +43,7 @@ export const getBlogsByTag = cache(async (slug: string) => {
 	`
 
 	const { tag } = await request<{
-		tag: { blog: IBlog[]; name: string; description: string }
+		tag: { blogs: IBlog[]; name: string; description: string }
 	}>(graphQLAPI, query, { slug })
 	return tag
 })

@@ -43,7 +43,7 @@ async function Page(props: { params: Promise<Params> }) {
 			</div>
 
 			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24'>
-				{tag.blog.map(blog => (
+				{tag.blogs.map(blog => (
 					<BlogCard key={blog.title} {...blog} isVertical />
 				))}
 			</div>

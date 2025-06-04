@@ -67,3 +67,19 @@ export const getCategories = async () => {
 	)
 	return categories
 }
+
+export const getPopularCategories = async () => {
+	const query = gql`
+		query MyQuery {
+			categories(first: 6) {
+				name
+				slug
+			}
+		}
+	`
+
+	const { categories } = await request<{
+		categories: { name: string; slug: string }[]
+	}>(graphQLAPI, query)
+	return categories
+}
