@@ -12,6 +12,7 @@ import {
 	Drawer,
 	DrawerClose,
 	DrawerContent,
+	DrawerTitle,
 	DrawerTrigger,
 } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
@@ -51,9 +52,13 @@ const GlobalSearch = () => {
 				</div>
 			</DrawerTrigger>
 			<DrawerContent>
-				<div className='container max-w-6xl mx-auto py-12'>
+				<div className='container max-w-6xl mx-auto pb-12'>
+					<div className='text-xl py-3 flex justify-center'>
+						<DrawerTitle>Search Panel</DrawerTitle>
+						<Search className='w-6 h-6' />
+					</div>
 					<Input
-						className='bg-secondary'
+						className='bg-secondary mt-2'
 						placeholder='Search blog...'
 						aria-label='search-blog'
 						onChange={debounceSearch}
@@ -89,7 +94,6 @@ const GlobalSearch = () => {
 							</Link>
 						</div>
 
-						{/* TODO: fetch poopular tags and categories from backend */}
 						<div className='flex flex-wrap gap-2'>
 							{popularCategories.map(category => (
 								<Link href={`/categories/${category.slug}`} key={category.slug}>
