@@ -22,8 +22,6 @@ async function ArchivePage() {
 					<span>Archive</span>
 				</h2>
 
-				{/* it is repeating: */}
-				{/* TODO: separate it */}
 				<div className='flex gap-1 items-center mt-4'>
 					<Home className='w-4 h-4' />
 					<Link

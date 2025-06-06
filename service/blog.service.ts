@@ -71,6 +71,7 @@ export const getDetailedBlog = cache(async (slug: string) => {
 					slug
 				}
 				title
+				description
 			}
 		}
 	`
