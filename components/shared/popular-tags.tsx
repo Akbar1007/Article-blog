@@ -11,12 +11,12 @@ const PopularTags = () => {
 	const [tags, setTags] = useState<{ name: string; slug: string }[]>([])
 
 	useEffect(() => {
-		const getPOpoularTags = async () => {
+		const getPopoularTags = async () => {
 			const res = await getPopularTags()
 			setTags(res)
 		}
 
-		getPOpoularTags()
+		getPopoularTags()
 	}, [])
 
 	return (

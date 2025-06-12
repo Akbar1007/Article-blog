@@ -40,8 +40,8 @@ const ContactForm = () => {
 				},
 				body: JSON.stringify({
 					chat_id: telegramChatId,
-					text: `Name: ${values.name}:
-Email: ${values.email}:
+					text: `Name: ${values.name}
+Email: ${values.email}
 Message: ${values.message}`,
 				}),
 			}
