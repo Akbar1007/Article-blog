@@ -5,7 +5,7 @@ import { IArchieveBlog, IBlog } from '@/types'
 
 const graphQLAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
 
-export const getBlogs = async () => {
+export const getBlogs = cache(async () => {
 	const query = gql`
 		query MyQuery {
 			blogs(first: 10, where: { archive: false }) {
@@ -39,7 +39,7 @@ export const getBlogs = async () => {
 
 	const { blogs } = await request<{ blogs: IBlog[] }>(graphQLAPI, query)
 	return blogs
-}
+})
 
 export const getDetailedBlog = cache(async (slug: string) => {
 	const query = gql`
@@ -100,7 +100,7 @@ export const getSearchBlogs = async (title: string) => {
 	return blogs
 }
 
-export const getArchiveBlogs = async () => {
+export const getArchiveBlogs = cache(async () => {
 	const query = gql`
 		query MyQuery {
 			blogs(where: { archive: true }) {
@@ -127,4 +127,4 @@ export const getArchiveBlogs = async () => {
 	const results: IArchieveBlog[] = Object.values(filteredBlogs)
 
 	return results
-}
+})
